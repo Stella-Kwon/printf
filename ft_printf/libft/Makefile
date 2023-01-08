@@ -45,20 +45,23 @@ SRCS_BONUS = ft_lstiter_bonus.c\
 			 ft_lstnew_bonus.c\
 			 ft_lstmap_bonus.c
 
-INCLUDES = -c -I ./libft.h
+INCLUDES = -I ./libft.h
 
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -c
 
-OBJECTS = $(SRCS:.c=.o)
+OBJECTS = $(SRCS:.c=.o) #이거자체가 함수기능.
 
 BONUS_OBJECTS = $(SRCS_BONUS:.c=.o)
 
-all: $(NAME)
+all: $(NAME) #if prerequisite exits then it should perform first before the recipe executes. but here reprequisite does everything by calling $(name)
 
-$(NAME):
-		cc $(FLAGS) $(SRCS) $(INCLUDES)
+$(NAME): 
+		cc $(FLAGS) $(SRCS) $(INCLUDES) 
 		ar rcs $(NAME) $(OBJECTS)
-#ar rcs $(NAME) $(OBJECTS)
+#ar rcs $@ $(OBJECTS) #@ = The filename representing the target.
+#-c는 .o파일만 만듬.
+#이 안에서의 name은 매크로 값을 불르는것이고 library를 만드는것이다 object로
+
 ##The -r ( = relocatable) option directs the linker to produce an object file target (rather than a program, or DSO) 
 ##by linking the inputs as far as possible and not to fail the linkaqe if undefined symbol references remain in the output file. 
 ##This usage is called partial linking.
@@ -68,11 +71,13 @@ $(NAME):
 #r means that if the library already exists, replace the old files within the library with your new files. 
 #c means create the library if it did not exist
 
-$(SRCS_BONUS:.c=.o): $(SRCS_BONUS:.c=.o)
-					cc $(FLAGS) $(SRCS_BONUS) $(INCLUDES)
-					ar rus $(NAME) $(BONUS_OBJECTS)
-
-bonus: $(SRCS_BONUS:.c=.o)
+bonus: $(SRCS_BONUS:.c=.o)#this can be exit but doesn't have to exists as itself does the function. changes .c suffix to .o
+#bonus:
+#	cc $(FLAGS) $(SRCS_BONUS) $(INCLUDES)
+#	ar rus $(NAME) $(BONUS_OBJECTS)
+$(SRCS_BONUS:.c=.o):
+	cc $(FLAGS) $(SRCS_BONUS) $(INCLUDES)
+	ar rus $(NAME) $(BONUS_OBJECTS)
 #-u, 다시 libft.a를 만들어서 보너스를 해주는 형식이 될수 있기 때문에
 # -u      Update files.  When used with the -r option, files in the archive
 # will be replaced only if the disk file has a newer modification

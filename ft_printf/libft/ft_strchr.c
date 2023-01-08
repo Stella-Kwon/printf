@@ -6,7 +6,7 @@
 /*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:46:28 by sukwon            #+#    #+#             */
-/*   Updated: 2022/12/20 13:48:04 by sukwon           ###   ########.fr       */
+/*   Updated: 2023/01/05 23:37:06 by sukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strchr(const char *str, int character)
     if (!str)
         return (0);
 	if (character == '\0')
-		return (&str[ft_strlen(str)]);
+		return ((char*)&str[ft_strlen(str)]);
 	while (str[i] != '\0')
 	{
 		if (str[i] == (unsigned char)character)

@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include "ft_printf.h"//다른 함수 불러오기위해선 헤더 필욯함.
+#include<stdlib.h>
+
+int main()
+{
+	char	a[13] = "%x";
+	char	*vc;
+	vc = (char*)malloc(5);
+	vc = "abcs";
+	unsigned int c = 16666;
+	int af;
+
+	af = 0;
+	
+	ft_printf("d: %d\n",123456);
+	printf("d: %d\n",123456);
+	ft_printf("c: %c\n",'d');
+	printf("c: %c\n",'d');
+	ft_printf("vc:%p\n",&vc);
+	printf("vc:%p\n",&vc);
+	ft_printf(a,c);
+	puts("\n");
+	printf(a,c);
+	puts("\n");
+	ft_printf("ㅇㅇ%d\n",ft_printf(a,c));
+	printf("ㅇㅇ%d\n",printf(a,c));
+
+	printf("c: %d%1234\n",1);
+	ft_printf("c: %d%1234\n",1);
+	ft_printf("str: %s\n", vc);
+	printf("str: %s\n", vc);
+	vc = NULL;
+	free(vc);
+	return (0);
+}
