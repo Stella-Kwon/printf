@@ -6,7 +6,7 @@
 /*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:50:57 by sukwon            #+#    #+#             */
-/*   Updated: 2023/01/08 22:22:35 by sukwon           ###   ########.fr       */
+/*   Updated: 2023/01/10 11:49:21 by sukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ static int	check_format(char format, va_list ap)
 	if (format == 's')
 		length += put_str(va_arg(ap, char *));
 	if (format == 'u')
-		length += put_unsigned_long(va_arg(ap, unsigned long));
+		length += put_unsigned_int(va_arg(ap, unsigned int));
 	if (format == 'x')
 		length += put_hex_low(va_arg(ap, unsigned int));
 	if (format == 'X')
 		length += put_hex_up(va_arg(ap, unsigned int));
 	if (format == 'p')
-		length += put_ptr(va_arg(ap, unsigned long long));
+		length += put_ptr(va_arg(ap, void *));
 	if (format == '%')
 		length += put_char('%');
 		//length += put_char(va_arg(ap, int)); //연계되는게 아니기때문에 바로 프린트

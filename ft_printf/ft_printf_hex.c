@@ -6,7 +6,7 @@
 /*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 14:46:28 by sukwon            #+#    #+#             */
-/*   Updated: 2023/01/08 22:37:12 by sukwon           ###   ########.fr       */
+/*   Updated: 2023/01/09 10:58:52 by sukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,9 @@ int	put_hex_up(unsigned int n)
 	if (0 <= n && n < 16)
 	{
 		if (n < 10)
-		{
 			put_char('0' + n);
-			length += 1;
-		}
 		if (10 <= n && n < 16)
-		{
 			put_char(('A' - 10) + n);
-			length += 1;
-		}
 	}
 	if (16 <= n)
 	{

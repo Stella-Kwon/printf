@@ -6,7 +6,7 @@
 /*   By: sukwon <sukwon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:48:57 by sukwon            #+#    #+#             */
-/*   Updated: 2023/01/08 22:30:51 by sukwon           ###   ########.fr       */
+/*   Updated: 2023/01/10 11:50:17 by sukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "./libft/libft.h"
 //안불러오면 컴파일 안됌.
 
@@ -39,9 +40,9 @@ int	ft_printf(const char *format, ...);
 int	put_hex_up(unsigned int n);
 int	put_hex_low(unsigned int n);
 int	put_d_i(int n);
-int	put_unsigned_long(unsigned long n);
+int	put_unsigned_int(unsigned int n);
 int	put_str(char *str);
-int	put_ptr(unsigned long long n);
+int	put_ptr(void *n);
 int	put_char(int c);
 
 #endif
