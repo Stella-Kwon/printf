@@ -4,7 +4,7 @@ NAME = libftprintf.a
 
 SRCS = $(wildcard *.c)
 OBJS = $(patsubst %.c,%.o,$(wildcard *.c)) 
-CC = gcc
+CC = cc 
 ALL = $(wildcard *.o)
 #.o파일이 extract되지 않은상태에서 tester 파일로 들어가면 인식이 안되서 컴파일이안돼...
 #$(SRCS:.c:.o) wildcard를 사용해서 scrs를 정해줬을때는 옆에처럼 적으면 .o로 바껴서 적히지 않음.
@@ -29,7 +29,9 @@ all: subsystem $(NAME)
 
 subsystem:
 #	cd libft; $(MAKE)
-	cd libft && $(MAKE)
+#	cd libft && $(MAKE)
+	cd libft; make all
+#	$(MAKE) //it will recreate .o file again even it already existed...so don't use that $(MAKE)macro.
 	make -C ./libft bonus
 #$(make) = make 매크로인듯.
 $(NAME):
