@@ -16,7 +16,8 @@ CFLAGS = -Wall -Werror -Wextra -c -g
 #use of -l/-L https://www.rapidtables.com/code/linux/gcc/gcc-l.html
 # good description. https://stackoverflow.com/questions/3821916/how-to-merge-two-ar-static-libraries-into-one
 #https://hyeonbell.tistory.com/132
-INCLUDE = -I ./ft_printf.h
+INCLUDE = -I ./ft_printf.h 
+#if you call the header files in every file then it will detect even without calling INCLUDE
 
 #target … : prerequisites …
 #        recipe
@@ -31,8 +32,6 @@ subsystem:
 #	cd libft; $(MAKE)
 #	cd libft && $(MAKE)
 	cd libft; make all
-#	$(MAKE) //it will recreate .o file again even it already existed...so don't use that $(MAKE)macro.
-	make -C ./libft bonus
 #$(make) = make 매크로인듯.
 $(NAME):
 ##	$(CC) $(CFLAGS) $(INCLUDE) $(SRCS)
@@ -53,7 +52,8 @@ $(NAME):
 
 
 # -----------tester로 넘어갈때 .o인식이 안되서, .a파일을 아에 옮겨서 업데이트시키는 방식으로. 밑의 예와 같음.
-	mv ./libft/libft.a ./$(NAME)
+	mv ./libft/libft.a ./$(NAME) 
+#	mv = when you make file again after make all, it will recreate .o file again to make libft.a as it moved out, so it doesnt exit any more.
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRCS)
 	ar -rus $@ $(OBJS)
 
