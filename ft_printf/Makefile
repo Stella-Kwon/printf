@@ -52,8 +52,10 @@ $(NAME):
 
 
 # -----------tester로 넘어갈때 .o인식이 안되서, .a파일을 아에 옮겨서 업데이트시키는 방식으로. 밑의 예와 같음.
-	mv ./libft/libft.a ./$(NAME) 
+#	mv ./libft/libft.a ./$(NAME) 
 #	mv = when you make file again after make all, it will recreate .o file again to make libft.a as it moved out, so it doesnt exit any more.
+#so you should use cp origin different name.
+	cp ./libft/libft.a ./$(NAME) 
 	$(CC) $(CFLAGS) $(INCLUDE) $(SRCS)
 	ar -rus $@ $(OBJS)
 
