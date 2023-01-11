@@ -7,7 +7,7 @@ OBJS = $(patsubst %.c,%.o,$(wildcard *.c))
 CC = cc 
 ALL = $(wildcard *.o)
 #.o파일이 extract되지 않은상태에서 tester 파일로 들어가면 인식이 안되서 컴파일이안돼...
-#$(SRCS:.c:.o) wildcard를 사용해서 scrs를 정해줬을때는 옆에처럼 적으면 .o로 바껴서 적히지 않음.
+#$(SRCS:.c=.o) wildcard를 사용해서 scrs를 정해줬을때는 옆에처럼 적으면 .o로 바껴서 적히지 않음.
 
 CFLAGS = -Wall -Werror -Wextra -c -g
 
