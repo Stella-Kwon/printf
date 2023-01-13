@@ -2,14 +2,15 @@
 
 NAME = libftprintf.a
 
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard *.c) 
+#YOU SHOULD SPECIFY IT INCASE OF MOULINETTE WILL BAN YOU TOO.
 OBJS = $(patsubst %.c,%.o,$(wildcard *.c)) 
 CC = cc 
-ALL = $(wildcard *.o)
+#ALL = $(wildcard *.o)
 #.o파일이 extract되지 않은상태에서 tester 파일로 들어가면 인식이 안되서 컴파일이안돼...
 #$(SRCS:.c=.o) wildcard를 사용해서 scrs를 정해줬을때는 옆에처럼 적으면 .o로 바껴서 적히지 않음.
 
-CFLAGS = -Wall -Werror -Wextra -c -g
+CFLAGS = -Wall -Werror -Wextra -c
 
 # 동적라이브러리 만들때 gcc로 
 #Lib = -Llibft -llibft or -wl,-rpath,.........?
@@ -18,6 +19,11 @@ CFLAGS = -Wall -Werror -Wextra -c -g
 #https://hyeonbell.tistory.com/132
 INCLUDE = -I ./ft_printf.h 
 #if you call the header files in every file then it will detect even without calling INCLUDE
+
+LIB = -L. libftprintf.a (=-llibftprint)
+#this will detect your library.a file and include it during compiling.
+#so , cc &(CFLAGS) &(INCLUDE) &(LIB) &(OBJS)
+#ar -rcs &(NAME)
 
 #target … : prerequisites …
 #        recipe
