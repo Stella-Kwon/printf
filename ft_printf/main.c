@@ -1,10 +1,12 @@
-#include<stdio.h>
+#include<stdio.h> ONLY NEEDED IF THERE IS NO INCLUDE IN .h
 #include "ft_printf.h"//다른 함수 불러오기위해선 헤더 필욯함.
-#include<stdlib.h>
 
+
+//(void*)"hello" the value of hello will get into void pointer as value
+//(void*)40 the value of 40 will get into void pointer as value
 int main()
 {
-	// char	a[13] = "%x";
+	// char	a[] = "%x";
 	// char	*vc;
 	// vc = (char*)malloc(5);
 	// vc = "abcs";
@@ -12,6 +14,9 @@ int main()
 	// int af;
 
 	// af = 0;
+	
+	// printf("1 %k%u\n ", INT_MAX); something that is not specified as specifier will be ignored. 
+	// printf("1 %k%u\n ", INT_MAX, "a"); THIS FUNCTION WILL ALSO WORK BUT "a" WILL BE NOT PRINTED AS THERE IS NO SPECIFIER TO.
 	printf("1 %u\n ", INT_MAX);
 	printf("2 %u\n ", INT_MIN);
 	printf("3 %u\n ", LONG_MAX);
