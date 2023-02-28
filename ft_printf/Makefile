@@ -1,3 +1,21 @@
+#make 중요 옵션
+
+#옵션	설명
+#-C dir	Makefile을 계속 읽지 말고 우선은 dir로 이동하라는 것. 순환 make에 사용됨
+#-d, -debug	Makefile을 수행하면서 각종 정보를 모두 출력 (출력량 多)
+#-h, -help	옵션에 관한 도움말을 출력
+#-f <filename>, -file <filename>	<filename>에 해당하는 파일을 Makefile로 지정
+#-r, -no-builtin-rules>	내장된 각종 규칙 (Suffix Rule 등)을 없는것으로 간주한다.
+#따라서 사용자가 규칙을 새롭게 정의해 주어야 함
+#-t, -touch	파일의 생성 날짜를 현재 시간으로 갱신
+#-v, -version	make의 버전을 출력
+#-p, -print-data-base	make에서 내부적으로 세팅되어있는 값들을 출력
+#-k, -keep-going	에러가 나더라도 멈추지 말고 계속 진행하게 하는 명령어
+#(make는 에러 발생시 도중에 실행을 중단한다.)
+
+#https://parkgaebung.tistory.com/68
+
+
 .SUFFIXES = .c .o
 
 NAME = libftprintf.a
